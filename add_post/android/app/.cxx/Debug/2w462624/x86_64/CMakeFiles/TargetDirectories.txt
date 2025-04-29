@@ -1,0 +1,2 @@
+D:/PAB2-SI6B/firebase_authentication/android/app/.cxx/Debug/2w462624/x86_64/CMakeFiles/edit_cache.dir
+D:/PAB2-SI6B/firebase_authentication/android/app/.cxx/Debug/2w462624/x86_64/CMakeFiles/rebuild_cache.dir
