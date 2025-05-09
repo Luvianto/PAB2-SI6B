@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
@@ -48,9 +49,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
     'Lainnya',
   ];
 
-  // Set<String> _selectedCategories = {}; // Untuk menampung kategori yang dipilih
-  // String? _selectedCategory; // Menyimpan kategori yang dipilih
-
   void _showCategorySelection() {
     showModalBottomSheet(
       context: context,
@@ -64,10 +62,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
             return ListTile(
               title: Text(category),
               onTap: () {
-                setState(() {
-                  _aiCategory =
-                      category; // Ganti AI category dengan pilihan user
-                });
+                setState(() => _aiCategory = category);
                 Navigator.pop(context);
               },
             );
@@ -134,8 +129,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
     try {
       final model = GenerativeModel(
         model: 'gemini-1.5-pro',
-        // apiKey: 'AIzaSyA6vNcPoN2oOZuNiiHrAA2DMYNu7L6a7UQ',AIzaSyBGTO6OgcoINlc4B-aQD3R_-QLtptjhtRE
-        apiKey: 'AIzaSyBGTO6OgcoINlc4B-aQD3R_-QLtptjhtRE',
+        apiKey: dotenv.env['API_KEY'] ?? '',
       );
 
       final imageBytes = await _image!.readAsBytes();
