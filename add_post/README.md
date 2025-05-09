@@ -1,3 +1,4 @@
 # add_post
 
-A new Flutter project.
+1. Buatlah file dengan nama ".env" pada root project
+2. Hubungkan project dengan firebase
